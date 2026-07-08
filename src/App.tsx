@@ -15,7 +15,16 @@ import {
   CheckCircle2, 
   Smartphone,
   Send,
-  Compass
+  Compass,
+  Wifi,
+  Battery,
+  Activity,
+  CreditCard,
+  TrendingUp,
+  ArrowRight,
+  Lock,
+  Check,
+  Coffee
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import './App.css';
@@ -66,6 +75,12 @@ function App() {
   // Clipboard states
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+
+  // Active App State in the Phone Mockup
+  const [activeDeviceApp, setActiveDeviceApp] = useState<'jbiq' | 'workforce' | 'alrajhi' | 'noq' | 'inkwiry'>('jbiq');
+  
+  // Scroll progress for top indicator
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Typing Animation Hook parameters
   const roles = [
@@ -122,10 +137,16 @@ function App() {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentRoleIndex]);
 
-  // Scroll listener for Sticky Header & Section Activation
+  // Scroll listener for Sticky Header, Section Activation, & Progress
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+
+      // Scroll progress
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
 
       // Detect active section
       const scrollPos = window.scrollY + 200;
@@ -142,6 +163,28 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Mouse movement listener for custom glow coordinates
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Auto-cycle app simulator screens
+  useEffect(() => {
+    const apps: Array<'jbiq' | 'workforce' | 'alrajhi' | 'noq' | 'inkwiry'> = ['jbiq', 'workforce', 'alrajhi', 'noq', 'inkwiry'];
+    const timer = setInterval(() => {
+      setActiveDeviceApp(prev => {
+        const currentIndex = apps.indexOf(prev);
+        return apps[(currentIndex + 1) % apps.length];
+      });
+    }, 4500);
+    return () => clearInterval(timer);
   }, []);
 
   // Handlers for Clipboard Copy
@@ -436,6 +479,16 @@ function App() {
 
   return (
     <div className="portfolio-app">
+      {/* Viewport Scroll Progress Bar */}
+      <div className="scroll-progress-container">
+        <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
+      </div>
+
+      {/* Cursor Mouse Tracker Light Overlay */}
+      <div className="cursor-glow"></div>
+
+      {/* Tech Grid Background Overlay */}
+      <div className="tech-grid-overlay"></div>
       {/* Sticky Navigation Header */}
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container nav-container">
@@ -559,37 +612,208 @@ function App() {
           {/* Premium CSS Interactive Mockup */}
           <div className="hero-graphic">
             <div className="graphic-bg-circle"></div>
-            <div className="phone-mockup">
+            <div className="phone-mockup animate-float">
               <div className="phone-notch"></div>
               <div className="phone-screen">
-                <div className="phone-header">
-                  <span className="phone-title">JBIQ Reliance</span>
-                  <Sparkles size={14} className="highlight" />
-                </div>
-                
-                <div className="phone-card phone-card-glow">
-                  <div className="phone-bar short primary"></div>
-                  <div className="phone-bar long"></div>
-                  <div className="phone-bar medium"></div>
-                </div>
-
-                <div className="phone-card">
-                  <div className="phone-bar short accent"></div>
-                  <div className="phone-bar long"></div>
-                  <div className="phone-chart">
-                    <div className="phone-chart-col"></div>
-                    <div className="phone-chart-col"></div>
-                    <div className="phone-chart-col"></div>
-                    <div className="phone-chart-col"></div>
-                    <div className="phone-chart-col"></div>
+                {/* Simulated StatusBar */}
+                <div className="phone-statusbar">
+                  <span className="phone-time">09:41</span>
+                  <div className="phone-status-icons">
+                    <Wifi size={12} />
+                    <Activity size={12} className="live-pulse" />
+                    <Battery size={12} />
                   </div>
                 </div>
 
-                <div className="phone-card">
-                  <div className="phone-bar short"></div>
-                  <div className="phone-bar medium"></div>
-                </div>
+                {activeDeviceApp === 'jbiq' && (
+                  <div className="phone-app-content jbiq-app">
+                    <div className="app-nav">
+                      <span className="app-title">JBIQ Reliance</span>
+                      <span className="badge badge-success animate-pulse">LIVE</span>
+                    </div>
+                    <div className="app-body">
+                      <div className="metrics-circle">
+                        <div className="metrics-val">415<span className="unit">V</span></div>
+                        <div className="metrics-label">Grid Load Stable</div>
+                      </div>
+                      <div className="app-card">
+                        <div className="card-label">Active Harmonics</div>
+                        <div className="chart-bar-container">
+                          <div className="chart-bar" style={{ width: '85%' }}></div>
+                        </div>
+                      </div>
+                      <div className="app-grid">
+                        <div className="grid-item">
+                          <span className="grid-lbl">Current</span>
+                          <span className="grid-val">84 A</span>
+                        </div>
+                        <div className="grid-item">
+                          <span className="grid-lbl">Freq</span>
+                          <span className="grid-val">50.02 Hz</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeDeviceApp === 'workforce' && (
+                  <div className="phone-app-content workforce-app">
+                    <div className="app-nav">
+                      <span className="app-title">WorkForce ERP</span>
+                      <span className="badge badge-primary">4 Tasks</span>
+                    </div>
+                    <div className="app-body">
+                      <div className="task-progress-card">
+                        <span className="card-lbl">Today's Progress</span>
+                        <div className="progress-row">
+                          <div className="progress-bg">
+                            <div className="progress-fill" style={{ width: '60%' }}></div>
+                          </div>
+                          <span className="progress-txt">60%</span>
+                        </div>
+                      </div>
+                      
+                      <div className="task-list">
+                        <div className="task-item completed">
+                          <Check size={12} className="icon-check" />
+                          <span className="task-name">Substation Safety Check</span>
+                        </div>
+                        <div className="task-item active">
+                          <div className="pulse-dot"></div>
+                          <span className="task-name">Equipment Health Audit</span>
+                        </div>
+                        <div className="task-item">
+                          <div className="empty-dot"></div>
+                          <span className="task-name">Verify Switchgear Status</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeDeviceApp === 'alrajhi' && (
+                  <div className="phone-app-content alrajhi-app">
+                    <div className="app-nav">
+                      <span className="app-title">urpay Wallet</span>
+                      <Lock size={12} className="lock-icon" />
+                    </div>
+                    <div className="app-body">
+                      <div className="wallet-card">
+                        <span className="wallet-label">Available Balance</span>
+                        <h4 className="wallet-balance">$14,250.80</h4>
+                        <span className="wallet-user">Ankit Nasit</span>
+                      </div>
+                      
+                      <div className="quick-actions">
+                        <div className="action-btn">
+                          <CreditCard size={14} />
+                          <span>Transfer</span>
+                        </div>
+                        <div className="action-btn">
+                          <TrendingUp size={14} />
+                          <span>Invest</span>
+                        </div>
+                        <div className="action-btn">
+                          <Coffee size={14} />
+                          <span>Pay Bills</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {activeDeviceApp === 'noq' && (
+                  <div className="phone-app-content noq-app">
+                    <div className="app-nav">
+                      <span className="app-title">NOQ Express</span>
+                      <span className="badge badge-accent">Scan & Go</span>
+                    </div>
+                    <div className="app-body">
+                      <div className="cart-card">
+                        <div className="cart-header">Current Order</div>
+                        <div className="cart-item">
+                          <span>Pizza (Cheese)</span>
+                          <span className="price">$14.50</span>
+                        </div>
+                        <div className="cart-item">
+                          <span>Iced Mocha</span>
+                          <span className="price">$4.00</span>
+                        </div>
+                        <div className="cart-total">
+                          <span>Total</span>
+                          <span>$18.50</span>
+                        </div>
+                      </div>
+                      <button className="btn-pay">
+                        <span>Slide to Pay</span>
+                        <ArrowRight size={14} className="arrow-anim" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {activeDeviceApp === 'inkwiry' && (
+                  <div className="phone-app-content inkwiry-app">
+                    <div className="app-nav">
+                      <span className="app-title">Inkwiry Finance</span>
+                      <TrendingUp size={14} className="highlight" />
+                    </div>
+                    <div className="app-body">
+                      <div className="projection-card">
+                        <span className="card-lbl">Scenario Analysis</span>
+                        <div className="networth-val">$240,000</div>
+                        <span className="networth-lbl">Est. Future Net Worth</span>
+                      </div>
+                      
+                      <div className="graph-container">
+                        <div className="graph-bar" style={{ height: '30%' }}></div>
+                        <div className="graph-bar" style={{ height: '50%' }}></div>
+                        <div className="graph-bar active" style={{ height: '80%' }}></div>
+                        <div className="graph-bar" style={{ height: '65%' }}></div>
+                        <div className="graph-bar" style={{ height: '90%' }}></div>
+                      </div>
+                      <div className="toggle-container">
+                        <span className="toggle-btn active">Conservative</span>
+                        <span className="toggle-btn">Aggressive</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
+            </div>
+            
+            {/* Emulator Controls */}
+            <div className="phone-controls">
+              <button 
+                className={`control-tab ${activeDeviceApp === 'jbiq' ? 'active' : ''}`}
+                onClick={() => setActiveDeviceApp('jbiq')}
+              >
+                JBIQ
+              </button>
+              <button 
+                className={`control-tab ${activeDeviceApp === 'workforce' ? 'active' : ''}`}
+                onClick={() => setActiveDeviceApp('workforce')}
+              >
+                WorkForce
+              </button>
+              <button 
+                className={`control-tab ${activeDeviceApp === 'alrajhi' ? 'active' : ''}`}
+                onClick={() => setActiveDeviceApp('alrajhi')}
+              >
+                urpay
+              </button>
+              <button 
+                className={`control-tab ${activeDeviceApp === 'noq' ? 'active' : ''}`}
+                onClick={() => setActiveDeviceApp('noq')}
+              >
+                NOQ
+              </button>
+              <button 
+                className={`control-tab ${activeDeviceApp === 'inkwiry' ? 'active' : ''}`}
+                onClick={() => setActiveDeviceApp('inkwiry')}
+              >
+                Inkwiry
+              </button>
             </div>
           </div>
         </div>

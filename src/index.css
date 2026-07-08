@@ -1348,3 +1348,567 @@ section {
 .no-scroll {
   overflow: hidden;
 }
+
+/* --- Scroll Progress Indicator --- */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 9999;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+/* --- Cursor Glow Overlay --- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(139, 92, 246, 0.08) 0%,
+    rgba(6, 182, 212, 0.04) 50%,
+    transparent 100%
+  );
+}
+
+/* --- Tech Grid Overlay --- */
+.tech-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.65;
+}
+
+/* --- Interactive Phone Mockup & Screen Styles --- */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.phone-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 0.5rem;
+}
+
+.phone-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.live-pulse {
+  color: var(--accent);
+  animation: pulse 1.5s infinite;
+}
+
+.phone-app-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 2.5rem);
+  color: var(--text-primary);
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.app-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.app-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-primary {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--primary);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-accent {
+  background: rgba(6, 182, 212, 0.2);
+  color: var(--secondary);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.app-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+/* JBIQ App CSS */
+.jbiq-app .metrics-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.jbiq-app .metrics-val {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.jbiq-app .metrics-val .unit {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.jbiq-app .metrics-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.jbiq-app .app-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.jbiq-app .card-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.jbiq-app .chart-bar-container {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.jbiq-app .chart-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+.jbiq-app .app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.jbiq-app .grid-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.jbiq-app .grid-lbl {
+  display: block;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.jbiq-app .grid-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* WorkForce App CSS */
+.workforce-app .task-progress-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.workforce-app .card-lbl {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.workforce-app .progress-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.workforce-app .progress-bg {
+  flex-grow: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+.workforce-app .progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.workforce-app .progress-txt {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.workforce-app .task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.workforce-app .task-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.workforce-app .task-item.completed {
+  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.workforce-app .task-item.completed .task-name {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.workforce-app .icon-check {
+  color: var(--accent);
+}
+
+.workforce-app .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+  animation: pulse 1.5s infinite;
+}
+
+.workforce-app .empty-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--text-muted);
+}
+
+.workforce-app .task-name {
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* urpay Wallet CSS */
+.alrajhi-app .wallet-card {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 12px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.1);
+}
+
+.alrajhi-app .wallet-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  display: block;
+}
+
+.alrajhi-app .wallet-balance {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 2px 0 6px;
+  background: linear-gradient(90deg, #fff, var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.alrajhi-app .wallet-user {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.alrajhi-app .quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.alrajhi-app .action-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.alrajhi-app .action-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.alrajhi-app .action-btn span {
+  font-size: 0.6rem;
+  font-weight: 600;
+}
+
+.alrajhi-app .lock-icon {
+  color: var(--text-muted);
+}
+
+/* NOQ App CSS */
+.noq-app .cart-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.noq-app .cart-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 4px;
+  margin-bottom: 2px;
+}
+
+.noq-app .cart-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.noq-app .cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 4px;
+  margin-top: 2px;
+}
+
+.noq-app .btn-pay {
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(6, 182, 212, 0.2);
+  transition: var(--transition-fast);
+}
+
+.noq-app .btn-pay:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.noq-app .arrow-anim {
+  animation: slidePay 1.5s infinite;
+}
+
+@keyframes slidePay {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* Inkwiry App CSS */
+.inkwiry-app .projection-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}
+
+.inkwiry-app .card-lbl {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.inkwiry-app .networth-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.inkwiry-app .networth-lbl {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.inkwiry-app .graph-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.01);
+  padding: 0 0.5rem;
+}
+
+.inkwiry-app .graph-bar {
+  width: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  transition: height 0.3s ease;
+}
+
+.inkwiry-app .graph-bar.active {
+  background: var(--secondary);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.4);
+}
+
+.inkwiry-app .toggle-container {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.inkwiry-app .toggle-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 0.25rem 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.inkwiry-app .toggle-btn.active {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Emulator Tabs Container Styles */
+.phone-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem;
+  border-radius: 12px;
+  backdrop-filter: var(--glass-blur);
+  z-index: 5;
+}
+
+.control-tab {
+  flex: 1;
+  padding: 0.45rem 0.25rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.control-tab:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+}
+
+.control-tab.active {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.25);
+  color: var(--primary);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.05);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.95); }
+}
