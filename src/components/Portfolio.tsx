@@ -27,7 +27,6 @@ import {
   Coffee
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import './App.css';
 
 // Project Interfaces
 interface Project {
