@@ -34,7 +34,7 @@ interface Project {
   title: string;
   description: string;
   fullDescription: string;
-  category: 'React Native' | 'AI / ML' | 'Fintech' | 'Utility';
+  category: 'React Native' | 'AI / ML' | 'Fintech' | 'Utility' | 'Web & Next.js';
   technologies: string[];
   responsibilities: string[];
   links: {
@@ -83,9 +83,9 @@ function App() {
 
   // Typing Animation Hook parameters
   const roles = [
-    "Senior React Native Engineer",
-    "Mobile Solutions Architect",
-    "Cross-Platform App Specialist",
+    "Senior React Native & React Engineer",
+    "Mobile & Web Solutions Architect",
+    "AI Analytics & Fintech Developer",
     "7.5+ Years Experience"
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -263,45 +263,45 @@ function App() {
   const experiences = [
     {
       company: "The Product Guys, Bangalore",
-      role: "Sr Engineer",
+      role: "Sr Engineer (Contract)",
       date: "Mar 2026 – May 2026",
-      desc: "Specialized in architectural enhancements and optimization of cross-platform apps."
+      desc: "Architected AI-powered consumer intelligence platform (JBIQ) for Reliance with ML analytics APIs, biometric auth, FlashList & MMKV optimizations, and React Native New Architecture (JSI, Fabric, TurboModules)."
     },
     {
       company: "Maplebell Private Limited, Bangalore",
       role: "Sr Engineer",
       date: "Nov 2025 – Mar 2026",
-      desc: "Directed engineering cycles, performance audit updates, and CI/CD pipelines."
+      desc: "Directed engineering cycles and CI/CD pipelines for Velrics workforce management app with offline sync, biometric security, TanStack Query, and Detox/Maestro E2E testing."
     },
     {
       company: "NotionMindz Technology LLP, Bangalore",
       role: "Sr Engineer",
       date: "Jan 2023 – Nov 2025",
-      desc: "Led core React Native applications and high-fidelity integrations for flagship projects."
+      desc: "Led React Native development for Alrajhi Capital stock trading app (Al Rajhi Bank) & built Inkwiry personal finance planner from scratch with custom Swift/Kotlin native modules."
     },
     {
       company: "Opash Software, Surat",
       role: "Sr. Software Engineer",
-      date: "Dec 2021 - Dec 2022",
-      desc: "Built finance-tech interfaces and optimized secure local storage utilities."
+      date: "Dec 2021 – Dec 2022",
+      desc: "Engineered NOQ queueless food/drink collection app (Stripe & Vision Camera), CashRemit money transfer, and Dealertouch web portal using Next.js App Router & Tailwind CSS."
     },
     {
       company: "EbizzInfotech, Surat",
       role: "Software Engineer",
-      date: "Apr 2020 - Nov 2021",
-      desc: "Developed pixel-perfect layouts and payment gateway SDK integrations."
+      date: "Apr 2020 – Nov 2021",
+      desc: "Built Black Books Air Android app and Gym Timer iOS app, integrated payment gateway SDKs, push notifications, and pixel-perfect UI layouts."
     },
     {
       company: "Meritorious Infotech, Surat",
       role: "Software Engineer",
       date: "Jul 2019 – Mar 2020",
-      desc: "Maintained iOS/Android codebases and handled push notification configurations."
+      desc: "Developed Werzu interactive iOS application, maintaining cross-platform codebases and handling push notification configuration."
     },
     {
       company: "Rain Infotech, Surat",
       role: "Software Engineer",
       date: "Jan 2019 – Jun 2019",
-      desc: "Began development in mobile computing and modular integrations."
+      desc: "Began professional React Native development on Iron Box vendor utility app for Android."
     }
   ];
 
@@ -309,68 +309,87 @@ function App() {
   const projects: Project[] = [
     {
       id: "jbiq",
-      title: "JBIQ - Reliance Consumer Intelligence",
-      description: "AI-powered consumer intelligence and analytics platform developed for Reliance to enhance customer engagement.",
-      fullDescription: "JBIQ is an enterprise-scale consumer intelligence application leveraging AI/ML APIs to parse consumer purchasing behaviors, trends, and dashboard insights. Built for high scaling, it maintains strict security schemas and real-time alerts.",
+      title: "JBIQ – Reliance Consumer Intelligence Platform",
+      description: "AI-powered consumer intelligence and analytics platform developed for Reliance to surface real-time customer behavior insights.",
+      fullDescription: "JBIQ is an enterprise AI consumer intelligence application built for Reliance. It surfaces predictive customer behavior insights, real-time analytics dashboards, biometric authentication, encrypted local storage, FlashList list rendering, MMKV caching, and React Native New Architecture (JSI, Fabric, TurboModules) performance enhancements with Reanimated 3.",
       category: "AI / ML",
-      technologies: ["JavaScript", "TypeScript", "React Native", "Redux Toolkit", "Firebase", "REST APIs", "AI/ML APIs", "Node.js", "Axios", "Secure Storage", "Push Notifications", "React Navigation", "WebSockets", "Biometric Authentication"],
+      technologies: ["React Native (0.76+)", "React 18", "TypeScript", "JSI / Fabric", "TurboModules", "AI / ML APIs", "Redux Toolkit", "MMKV", "FlashList", "Reanimated 3", "Biometric Auth", "Sentry", "EAS Update / CodePush", "WebSockets"],
       responsibilities: [
-        "Developed and maintained cross-platform mobile applications using React Native for Android and iOS platforms.",
-        "Integrated AI-based services and analytics APIs to provide intelligent consumer insights and recommendation features.",
-        "Implemented secure authentication and authorization mechanisms including biometric login and session handling.",
-        "Consumed and managed REST APIs for real-time customer data, analytics dashboards, and reporting modules.",
-        "Managed complex application state using Redux Toolkit for scalable and maintainable architecture.",
-        "Optimized application performance, API handling, and memory usage to ensure smooth user experience across devices."
+        "Brought on as contract Senior Engineer to drive architectural enhancements and performance optimization for Reliance.",
+        "Integrated AI/ML-based analytics APIs to surface real-time customer behavior insights and predictive recommendations on smart dashboards.",
+        "Implemented biometric authentication and secure session handling; hardened local storage encryption for sensitive analytics data.",
+        "Optimized API handling, WebSocket usage, and memory footprint to improve responsiveness across Android and iOS.",
+        "Contributed to New Architecture (JSI, Fabric, TurboModules) migration and Reanimated 3-based UI transitions.",
+        "Replaced legacy list rendering with FlashList and moved local caching to MMKV to cut list-scroll jank and cold-start read latency.",
+        "Managed application monitoring with Sentry/Crashlytics and deployed OTA hotfixes using EAS Update/CodePush."
       ],
       links: {
-        web: "https://play.google.com/store/apps/details?id=com.alrajhicapital" // placeholder indicator
+        web: "https://play.google.com/store/apps/details?id=com.alrajhicapital"
       }
     },
     {
       id: "workforce",
       title: "Velrics Workforce Management",
-      description: "Advanced workforce mobile application designed to streamline employee attendance, tracking, and offline data sync.",
-      fullDescription: "Velrics focuses on operational tracking of remote and field workforce. Key mechanisms include secure session management, biometric authentication, offline operation sync, real-time push tracking, and live geolocation updates.",
+      description: "Field workforce management platform with real-time employee attendance tracking, task assignment, and offline data sync.",
+      fullDescription: "Velrics is a field workforce management application featuring real-time attendance tracking, geolocation field monitoring, offline data capture with automatic background sync, biometric login, TanStack Query server caching, and automated CI/CD pipelines via App Store Connect and Google Play Console.",
       category: "Utility",
-      technologies: ["JavaScript", "TypeScript", "React Native", "Redux", "REST APIs", "Axios", "Firebase", "Push Notifications", "React Navigation", "Secure Storage", "Geolocation", "Offline Data Sync", "Fastlane", "Biometric Authentication", "Jest"],
+      technologies: ["React Native", "TypeScript", "Redux", "TanStack Query", "Geolocation API", "Offline Data Sync", "Biometric Auth", "React Native Testing Library", "Detox / Maestro E2E", "Fastlane", "App Store Connect", "Google Play Console"],
       responsibilities: [
-        "Developed and maintained the mobile application using React Native for both Android and iOS platforms.",
-        "Integrated geolocation and workforce tracking features to monitor field operations effectively.",
-        "Added secure local storage for handling sensitive user and session data securely.",
-        "Supported offline functionality and synchronized data when internet connectivity was restored.",
-        "Performed unit testing, bug fixing, and QA support using Jest to ensure application stability."
+        "Directed engineering cycles, performance audits, and CI/CD pipeline updates for field workforce management.",
+        "Built real-time employee attendance tracking, task assignment, and geolocation-based field monitoring features.",
+        "Implemented offline data capture with automatic sync on reconnect, ensuring reliable operation for field staff with intermittent connectivity.",
+        "Added biometric login and secure session handling; managed application state at scale with Redux.",
+        "Introduced React Native Testing Library and Detox/Maestro E2E test coverage for critical attendance and task flows, adopting TanStack Query for server-state caching.",
+        "Owned release management end-to-end through App Store Connect and Google Play Console, including build versioning, staged rollouts, and release notes."
       ],
       links: {}
     },
     {
       id: "alrajhi",
       title: "Alrajhi Capital Trading App",
-      description: "Cutting-edge stock trading and investment platform tailored for Al Rajhi Bank, featuring live market updates.",
-      fullDescription: "A high-security, high-performance financial mobile application. It features real-time charts, investment portfolio tracking, multilingual (Arabic/English) layout support, secure session tokens, and instant order transactions.",
+      description: "Investment & stock trading platform for Al Rajhi Bank supporting real-time portfolio tracking and live market updates.",
+      fullDescription: "A high-frequency investment and stock trading mobile app for Al Rajhi Bank. Features real-time portfolio tracking, live market pricing, instant buy/sell order execution, multilingual Arabic & English support, Branch.io deep linking, and custom Swift/Kotlin native modules.",
       category: "Fintech",
-      technologies: ["JavaScript", "TypeScript", "React Native", "REST APIs", "Redux", "Secure Storage", "Branch.io", "Push Notifications", "React Navigation", "Biometric Authentication", "Jest", "Fastlane"],
+      technologies: ["React Native", "TypeScript", "Redux Toolkit", "Swift & Kotlin Native Modules", "Branch.io", "Multilingual (Arabic/English)", "Expo / EAS Build", "REST APIs", "Biometric Auth", "Asana / Swagger"],
       responsibilities: [
-        "Built and maintained the mobile application using React Native targeting both Android and iOS platforms.",
-        "Developed secure authentication flows including biometric login and session management.",
-        "Integrated REST APIs to fetch and post market data, portfolio updates, and trade execution.",
-        "Contributed to the creation of a multilingual interface supporting Arabic and English."
+        "Led core React Native development on Alrajhi Capital, an investment/trading app for Al Rajhi Bank supporting real-time portfolio tracking, live pricing, and buy/sell order execution.",
+        "Built a multilingual (Arabic/English) interface and integrated Branch.io deep linking for seamless cross-platform navigation.",
+        "Wrote custom native modules in Swift and Kotlin where third-party packages lacked New Architecture support.",
+        "Managed application state with Redux Toolkit, drove sprint planning and code reviews, and mentored team workflow using Asana and Swagger.",
+        "Built and maintained Expo/EAS Build pipelines for reliable distribution."
       ],
       links: {
         playStore: "https://play.google.com/store/apps/details?id=com.alrajhicapital"
       }
     },
     {
-      id: "noq",
-      title: "NOQ - Food Ordering & Collection",
-      description: "Queueless ordering system allowing users to prepay and collect food/drinks at participating events.",
-      fullDescription: "NOQ is a live event food collection app that handles payment logic, camera barcode/QR scanning, and instant socket notifications. It is integrated with Stripe payment API.",
-      category: "Utility",
-      technologies: ["JavaScript", "TypeScript", "React Native", "Socket", "Stripe", "Vision Camera", "Jenkins", "Firebase", "Jest"],
+      id: "dealertouch",
+      title: "Dealertouch Dealer Management Web Portal",
+      description: "Modern dealer management web portal built with Next.js App Router, Server Components, React 18, and Tailwind CSS.",
+      fullDescription: "Dealertouch is a web-based dealer management portal engineered using Next.js (App Router, Server Components, Server Actions), React 18 concurrent features, and Tailwind CSS. Built with accessibility (a11y), Core Web Vitals optimization, and end-to-end automated testing.",
+      category: "Web & Next.js",
+      technologies: ["Next.js (App Router)", "React 18", "Server Components", "Server Actions", "TypeScript", "Tailwind CSS", "React Testing Library", "Playwright", "Core Web Vitals", "a11y"],
       responsibilities: [
-        "Designed and maintained excellent React Native application structures with clean code.",
-        "Implemented pixel-perfect layouts, modern transitions, and animations.",
-        "Integrated Stripe payment gateway and custom camera scanning libraries.",
-        "Managed socket integrations for live order collection status updates."
+        "Contributed to Dealertouch, a web-based dealer management portal, using Next.js (App Router, Server Components/Actions), React 18 concurrent features, and Tailwind CSS.",
+        "Implemented robust testing coverage with React Testing Library and Playwright.",
+        "Optimized web performance, page load times, accessibility (WCAG/a11y), and Core Web Vitals.",
+        "Integrated real-time socket updates and automated CI/CD build deployment pipelines."
+      ],
+      links: {
+        web: "https://app.dealertouch.ca/login"
+      }
+    },
+    {
+      id: "noq",
+      title: "NOQ – Queueless Food & Drink Collection",
+      description: "Queueless pre-order and venue collection app for live events featuring Stripe payments and Vision Camera.",
+      fullDescription: "NOQ is a live event food collection app that handles payment logic, camera barcode/QR scanning via Vision Camera, and instant socket notifications integrated with Stripe payment API.",
+      category: "Utility",
+      technologies: ["React Native", "TypeScript", "Vision Camera", "Stripe SDK", "WebSockets", "Jenkins CI", "Firebase", "Jest"],
+      responsibilities: [
+        "Built NOQ, a queueless food/drink pre-order and collection app, including pixel-perfect UI, Stripe payment integration, and Vision Camera-based features.",
+        "Designed and maintained clean React Native application structures with responsive layouts and modern animations.",
+        "Managed WebSockets for instant order updates and automated Jenkins release builds."
       ],
       links: {
         appStore: "https://apps.apple.com/gb/app/noq/id1515913853"
@@ -379,15 +398,14 @@ function App() {
     {
       id: "inkwiry",
       title: "Inkwiry Personal Finance Planner",
-      description: "Fintech application designed for personal financial life planning 5-15 years into the future.",
-      fullDescription: "Inkwiry facilitates future wealth projection and asset planning. Users input income, expense, and investment profiles, and the financial configurator updates dynamic visual projections.",
+      description: "Fintech life-planning application for 5-15 year wealth projections and asset planning with dynamic configurator UI.",
+      fullDescription: "Inkwiry facilitates future wealth projection and asset planning. Users input income, expense, and investment profiles into a custom financial configurator UI that updates dynamic visual projections.",
       category: "Fintech",
-      technologies: ["JavaScript", "TypeScript", "React Native", "Redux Toolkit", "Jenkins", "Jest", "Native Modules"],
+      technologies: ["React Native", "TypeScript", "Redux Toolkit", "Native Modules (Swift/Kotlin)", "Financial Configurator UI", "Jenkins CI", "Agile / Asana"],
       responsibilities: [
-        "Designed and built the mobile app from scratch, maintaining clean code architecture.",
-        "Interfaced with native bridges (Native Modules) when required for custom calculations.",
-        "Assisted in sprint planning, managed the development team, and followed Agile methodologies.",
-        "Conducted R&D on complex rendering engines for forecasting."
+        "Designed and built Inkwiry, a financial life-planning app, from scratch, including native module integration and a custom financial configurator UI.",
+        "Interfaced with native bridges (Native Modules) when required for high-performance financial calculations.",
+        "Assisted in sprint planning, managed team tasks, and conducted R&D on complex forecasting engines."
       ],
       links: {
         web: "https://inkwiry.com/"
@@ -398,40 +416,40 @@ function App() {
   // Secondary store/web projects
   const secondaryProjects: SecondaryProject[] = [
     {
+      title: "CashRemit",
+      description: "Remittance and money-transfer utility with secure payment flows.",
+      url: "https://play.google.com/store/apps/datasafety?id=com.cashremit.cashremitapp&pli=1",
+      platform: "Play Store"
+    },
+    {
       title: "Black Books Air",
-      description: "A specialized app utility on Android.",
+      description: "Specialized mobile utility app released on Google Play.",
       url: "https://play.google.com/store/apps/details?id=com.blackbookair.android",
       platform: "Play Store"
     },
     {
       title: "Werzu",
-      description: "Interactive application for iOS users.",
+      description: "Interactive iOS application with animation-rich UI.",
       url: "https://apps.apple.com/us/app/werzu/id1554399804",
       platform: "App Store"
     },
     {
       title: "Iron Box",
-      description: "Vendor utility management tool on Android.",
+      description: "Vendor utility management tool for Android field staff.",
       url: "https://play.google.com/store/apps/details?id=com.micandmac_vendornew.ironman",
       platform: "Play Store"
     },
     {
       title: "Gym Timer",
-      description: "Custom fitness rest duration counter.",
+      description: "iOS rest-timer counter with customizable workout routines.",
       url: "https://apps.apple.com/us/app/gym-timer-timer-for-rest-time/id1146409173",
       platform: "App Store"
     },
     {
       title: "Dealertouch",
-      description: "Web portal interface for dealer management.",
+      description: "Web portal interface for dealer management built in Next.js.",
       url: "https://app.dealertouch.ca/login",
       platform: "Web"
-    },
-    {
-      title: "CashRemit",
-      description: "Remittance and money transfer service utility.",
-      url: "https://play.google.com/store/apps/datasafety?id=com.cashremit.cashremitapp&pli=1",
-      platform: "Play Store"
     }
   ];
 
@@ -439,27 +457,31 @@ function App() {
   const skillsData = [
     {
       category: "Languages & Frameworks",
-      skills: ["React Native", "React", "JavaScript", "TypeScript", "Next.js", "OOPs", "Android SDK", "iOS SDK"]
+      skills: ["React Native (0.74–0.76+)", "React 18+", "Next.js", "TypeScript (strict)", "JavaScript", "Swift", "Kotlin", "Android SDK", "iOS SDK"]
     },
     {
-      category: "APIs & Web Services",
-      skills: ["REST", "GraphQL", "JSON", "XML", "WebSockets", "Socket.IO", "HTTP Client"]
+      category: "RN New Architecture & Web",
+      skills: ["JSI", "Fabric", "TurboModules", "Hermes", "Codegen", "Next.js App Router", "Server Components", "Server Actions", "Tailwind CSS"]
     },
     {
-      category: "Firebase Suite",
-      skills: ["FCM", "Firebase Auth", "Firestore", "Admob", "Firebase ML"]
+      category: "State, Storage & UI",
+      skills: ["Redux Toolkit", "Redux", "TanStack Query", "Zustand", "MMKV", "FlashList", "Reanimated 3", "Gesture Handler"]
     },
     {
-      category: "Security & Payments",
-      skills: ["SSL Pinning", "Encryption", "Hyperpay", "RazorPay"]
+      category: "Expo & Release Tooling",
+      skills: ["Expo", "Expo Router", "EAS Build", "EAS Update / CodePush", "App Store Connect", "Google Play Console", "Fastlane"]
     },
     {
-      category: "Databases & Repos",
-      skills: ["Firebase", "Realm", "Git", "GitHub", "GitLab", "BitBucket"]
+      category: "Testing & Quality",
+      skills: ["React Testing Library", "Playwright", "Cypress", "Detox", "Maestro (E2E)", "Jest", "a11y (WCAG)", "Core Web Vitals"]
     },
     {
-      category: "DevOps & Tools",
-      skills: ["Fastlane", "Jenkins", "Xcode", "Android Studio", "Postman", "Swagger", "Jira", "Asana"]
+      category: "APIs & Security",
+      skills: ["REST", "GraphQL", "WebSockets", "Socket.IO", "SSL Pinning", "Payload Encryption", "Biometric Auth", "Stripe", "Hyperpay", "RazorPay"]
+    },
+    {
+      category: "AI / Firebase & DevOps",
+      skills: ["LLM & AI/ML APIs", "FCM", "Firebase Auth", "Firestore", "Sentry", "Crashlytics", "Git", "GitHub", "Jira", "Asana", "Postman", "Swagger"]
     }
   ];
 
@@ -585,8 +607,7 @@ function App() {
             </div>
             
             <p className="hero-desc">
-              With <strong>7.5+ years of experience</strong> in React Native application development, 
-              I specialize in conceptualizing and building high-fidelity Android and iOS applications using the latest mobile technology architectures, smooth design structures, and security patterns.
+              Senior Software Engineer with <strong>7.5+ years of experience</strong> building cross-platform mobile applications in React Native, with growing depth in React for web. Shipped 15+ production apps across fintech, workforce management, AI analytics, and consumer utilities for clients including <strong>Reliance</strong> and <strong>Al Rajhi Bank</strong>.
             </p>
             
             <div className="hero-actions">
@@ -606,11 +627,62 @@ function App() {
                 Download CV
               </a>
             </div>
+
+            {/* Stats Bar */}
+            <div className="hero-stats-bar">
+              <div className="hero-stat">
+                <span className="hero-stat-num">7.5+</span>
+                <span className="hero-stat-label">Years Exp.</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-num">15+</span>
+                <span className="hero-stat-label">Apps Shipped</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-num">7</span>
+                <span className="hero-stat-label">Companies</span>
+              </div>
+              <div className="hero-stat">
+                <span className="hero-stat-num">2</span>
+                <span className="hero-stat-label">Platforms</span>
+              </div>
+            </div>
           </div>
 
           {/* Premium CSS Interactive Mockup */}
           <div className="hero-graphic">
             <div className="graphic-bg-circle"></div>
+
+            {/* Floating Badges */}
+            <div className="phone-float-badge phone-float-badge-left">
+              <div className="badge-icon" style={{background:'rgba(16,185,129,0.15)',color:'var(--accent)'}}>⚡</div>
+              <div>
+                <div style={{fontSize:'0.7rem',color:'var(--text-muted)'}}>Arch Pattern</div>
+                <div>Redux Toolkit</div>
+              </div>
+            </div>
+            <div className="phone-float-badge phone-float-badge-left2">
+              <div className="badge-icon" style={{background:'rgba(139,92,246,0.15)',color:'var(--primary)'}}>🔒</div>
+              <div>
+                <div style={{fontSize:'0.7rem',color:'var(--text-muted)'}}>Security</div>
+                <div>SSL Pinning</div>
+              </div>
+            </div>
+            <div className="phone-float-badge phone-float-badge-right">
+              <div className="badge-icon" style={{background:'rgba(6,182,212,0.15)',color:'var(--secondary)'}}>📱</div>
+              <div>
+                <div style={{fontSize:'0.7rem',color:'var(--text-muted)'}}>Platforms</div>
+                <div>iOS &amp; Android</div>
+              </div>
+            </div>
+            <div className="phone-float-badge phone-float-badge-right2">
+              <div className="badge-icon" style={{background:'rgba(245,158,11,0.15)',color:'#f59e0b'}}>🚀</div>
+              <div>
+                <div style={{fontSize:'0.7rem',color:'var(--text-muted)'}}>CI/CD</div>
+                <div>Fastlane</div>
+              </div>
+            </div>
+
             <div className="phone-mockup animate-float">
               <div className="phone-notch"></div>
               <div className="phone-screen">
@@ -793,7 +865,7 @@ function App() {
                 className={`control-tab ${activeDeviceApp === 'workforce' ? 'active' : ''}`}
                 onClick={() => setActiveDeviceApp('workforce')}
               >
-                WorkForce
+                Velrics
               </button>
               <button 
                 className={`control-tab ${activeDeviceApp === 'alrajhi' ? 'active' : ''}`}
@@ -858,7 +930,7 @@ function App() {
 
           {/* Project Filtering Toolbar */}
           <div className="project-filters">
-            {['All', 'React Native', 'AI / ML', 'Fintech', 'Utility'].map((category) => (
+            {['All', 'React Native', 'AI / ML', 'Fintech', 'Utility', 'Web & Next.js'].map((category) => (
               <button
                 key={category}
                 className={`filter-btn ${projectFilter === category ? 'active' : ''}`}
@@ -902,6 +974,7 @@ function App() {
                     {project.category === 'Fintech' && <Layers size={24} />}
                     {project.category === 'Utility' && <Compass size={24} />}
                     {project.category === 'React Native' && <Smartphone size={24} />}
+                    {project.category === 'Web & Next.js' && <Code2 size={24} />}
                   </div>
                   <div className="project-card-links" onClick={(e) => e.stopPropagation()}>
                     {project.links.playStore && (

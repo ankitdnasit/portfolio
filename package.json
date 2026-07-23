@@ -9,7 +9,7 @@
     "lint": "oxlint",
     "preview": "astro preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -t -d dist"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.1",
